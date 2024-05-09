@@ -8,6 +8,6 @@ package lk.ijse.gdse66;
  **/
 public class DecoratorPatternTest {
     public static void main(String[] args) {
-        
+
     }
 }
