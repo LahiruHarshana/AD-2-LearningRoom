@@ -7,4 +7,5 @@ package lk.ijse.gdse66;
  * @created : 2024-05-09, Thursday
  **/
 public interface Strategy {
+    public int doOperation(int num1, int num2);
 }
