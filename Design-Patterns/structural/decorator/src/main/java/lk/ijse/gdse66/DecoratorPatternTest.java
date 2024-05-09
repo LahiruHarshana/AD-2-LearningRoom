@@ -7,4 +7,7 @@ package lk.ijse.gdse66;
  * @created : 2024-05-09, Thursday
  **/
 public class DecoratorPatternTest {
+    public static void main(String[] args) {
+        
+    }
 }
