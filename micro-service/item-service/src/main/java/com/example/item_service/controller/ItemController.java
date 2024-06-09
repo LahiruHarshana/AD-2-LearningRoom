@@ -1,9 +1,9 @@
 package com.example.item_service.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.item_service.dto.CustomerDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author : L.H.J
@@ -17,8 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class ItemController {
 
+
+    @Autowired
+    RestTemplate restTemplate;
     @GetMapping("/get")
     public String getItem() {
         return "Item Details";
     }
+
+    @PostMapping("/add")
+    public String addItem(@RequestBody CustomerDTO customerDTO) {
+        return customerDTO.toString();
+    }
+
+    @GetMapping("/getCus")
+    public CustomerDTO getCus() {
+        return restTemplate.getForObject("http://localhost:8080/customer/getItems", CustomerDTO.class);
+    }
+
 }

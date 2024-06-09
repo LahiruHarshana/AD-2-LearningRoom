@@ -1,10 +1,9 @@
 package com.example.customer_service.controller;
 
+import com.example.customer_service.dto.CustomerDTO;
+import jakarta.ws.rs.POST;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -19,14 +18,19 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-
     @Autowired
     public RestTemplate restTemplate;
-
-
     @GetMapping("/get")
     public String getCustomer() {
         return restTemplate.getForObject("http://localhost:8081/item/get", String.class);
     }
+    @PostMapping("/add")
+    public String addCustomer() {
+        return restTemplate.postForObject("http://localhost:8081/item/add", new CustomerDTO("lahiru","Weligama","lahjiruHarshana","0718334554"), String.class);
+    }
 
+    @GetMapping("/getItems")
+    public CustomerDTO getItems() {
+        return new CustomerDTO("lahiru","Weligama","lahjiruHarshana","0718334554");
+    }
 }
