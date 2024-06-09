@@ -32,7 +32,7 @@ public class ItemController {
 
     @GetMapping("/getCus")
     public CustomerDTO getCus() {
-        return restTemplate.getForObject("http://localhost:8080/customer/getItems", CustomerDTO.class);
+        return restTemplate.getForObject("http://CUSTOMER-SERVICE/customer/getItems", CustomerDTO.class);
     }
 
 }
