@@ -22,4 +22,5 @@ public class CustomerController {
     public String getCustomer() {
         return "Customer Details";
     }
+
 }
